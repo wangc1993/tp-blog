@@ -1,14 +1,21 @@
 <div class="ladytop">
-            <div class="nav">
-                <div class="left"><a href="/jiehun/"><img src="__PUBLIC__/images/hunshang.png" alt="wed114婚尚"></a></div>
-                <div class="right">
-                <div class="box">
-                 <a href="/jiehun/hunjia/"  rel='dropmenu209'>婚嫁</a> <a href="/jiehun/meirong/"  rel='dropmenu110'>美容</a> <a href="/jiehun/fushi/"  rel='dropmenu112'>服饰</a> <a href="/jiehun/yule/"  rel='dropmenu118'>娱乐</a> <a href="/jiehun/jiankang/"  rel='dropmenu120'>健康</a> <a href="/jiehun/meishi/"  rel='dropmenu122'>美食</a> <a href="./images/"  rel='dropmenu117'>生活</a> <a href="/jiehun/tuku/"  rel='dropmenu103'>图库</a> <a href="/jiehun/zhuanti/" >专题</a>
-                 </div>
-                </div>
+    <div class="nav">
+        <div class="left"><a href="/jiehun/"><img src="__PUBLIC__/images/hunshang.png" alt="wed114婚尚"></a></div>
+        <div class="right">
+            <div class="box">
+                <a href="{:url('index/index')}"  rel='dropmenu209'>首页</a>
+                {volist name="cateList" id="vo"}
+                <a href="{:url('category/index',array('cateid'=>$vo['id']))}"  rel='dropmenu209'>{$vo.categoryname}</a>
+                {/volist}
             </div>
-        </div>
+       </div>
+   </div>
+</div>
 
-        <div class="hotmenu">
-            <div class="con">热门标签：<a href='/jiehun/qiwenqushi/'>奇闻趣事</a> <a href='/jiehun/shenghuomiaozhao/'>生活妙招</a> <a href='/jiehun/xingzuo/'>星座</a> <a href='/jiehun/qinzi/'>亲子</a> <a href='/jiehun/qiche/'>汽车</a> <a href='/jiehun/chongwubaike/'>宠物百科</a> <a href='/jiehun/jiaji/'>家居</a> </div>
-        </div>
+<div class="hotmenu">
+    <div class="con">热门标签：
+        {volist name="tagList" id="vo"}
+        <a href='http://127.0.0.1/tp5_1/public/index.php/index/search/index?keywords={$vo.tagname}'>{$vo.tagname}</a>
+        {/volist}
+    </div>
+</div>

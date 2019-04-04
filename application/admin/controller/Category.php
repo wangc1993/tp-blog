@@ -1,10 +1,9 @@
 <?php
 namespace app\admin\controller;
-/*引入控制器文件*/
-use think\Controller;
+use app\admin\controlle\Base;
 /*use think\Db;*/
 use app\admin\model\Category as CategoryModel;
-class Category extends Controller
+class Category extends Base
 {
     public function lst()
     {

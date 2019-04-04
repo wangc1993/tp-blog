@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>个人博客-文章分类</title>
+<title>个人博客-文章搜索</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="童老师ThinkPHP交流群：484519446" />
 <meta name="description" content="童老师ThinkPHP交流群：484519446" />
@@ -20,16 +20,18 @@
 
 <body>
 
-      {include file="common/header"}
+        {include file="common/header" /}
 
 <!--顶部通栏-->
-<div class="position" style="margin-bottom: 10px;"><a href="{:url('index/index')}">首页</a> > <a href="{:url('category/index',array('cateid'=>$category['id']))}">{$category.categoryname}</a> >  </div>
+
+
+<div class="position">搜索：<span style="color:#f00; font-weight:bold;">{$keywords}</span> </div>
 
 <div class="overall">
 
 	<div class="left">
 
-		{volist name="articleList" id="vo"}
+		{volist name="searchList" id="vo"}
 		<div class="xnews2">
 		<div class="pic"><a target="_blank" href="{:url('article/index',array('arid'=>$vo['id']))}">
 		<img width="230px" height="200px" src="{if condition="$vo['pic'] neq ''"}__IMG__{$vo.pic}{else /}__PUBLIC__/images/error.png{/if}" alt=""/>
@@ -51,18 +53,22 @@
 		</div>
 		</div>
 		{/volist}
-		{if condition="count($articleList) eq 0"}
-			暂无此分类内容
+		{if condition="count($searchList) eq 0"}
+			暂无相应文章内容
 		{/if}
-		<div class="pages" style="height: 80px">
-			<div class="plist">
-				{$articleList->render()}
-			</div>
-		</div>
+
+
+				<div class="pages" style="height: 80px">
+				<div class="plist">
+{$searchList->render()}
+				</div>
+				</div>
 	</div>
+
 	{include file="common/right" /}
+
 </div>
-{include file="common/footer"}
+{include file="common/footer" /}
 
 </body>
 </html>

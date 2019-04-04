@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
-    <title>博客后台-文章列表</title>
+    <title>博客后台-标签列表</title>
 
     <meta name="description" content="Dashboard">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +44,7 @@
                                         <li>
                         <a href="#">系统</a>
                     </li>
-                                        <li class="active">文章管理</li>
+                                        <li class="active">Tag标签管理</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -52,7 +52,7 @@
                 <!-- Page Body -->
                 <div class="page-body">
 
-<button type="button" tooltip="添加文章" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('article/add')}'"> <i class="fa fa-plus"></i> Add
+<button type="button" tooltip="添加Tag标签" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('tags/add')}'"> <i class="fa fa-plus"></i> Add
 </button>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -63,11 +63,7 @@
                         <thead class="">
                             <tr>
                                 <th class="text-center" width="4%">ID</th>
-                                <th class="text-center">文章标题</th>
-                                <th class="text-center">文章作者</th>
-                                <th class="text-center">是否推荐</th>
-                                <th class="text-center">缩略图</th>
-                                <th class="text-center">所属栏目</th>
+                                <th class="text-center">Tag标签名称</th>
                                 <th class="text-center" width="14%">操作</th>
                             </tr>
                         </thead>
@@ -75,28 +71,12 @@
                             {volist name="list" id="vo"}
                             <tr>
                                 <td align="center">{$vo.id}</td>
-                                <td align="center">{$vo.title}</td>
-                                <td align="center">{$vo.author}</td>
+                                <td align="center">{$vo.tagname}</td>
                                 <td align="center">
-                                    {if condition="$vo['state'] eq 1 "}
-                                    已推荐
-                                    {else /}
-                                    未推荐
-                                    {/if}
-                                </td>
-                                <td align="center">
-                                    {if condition="$vo['pic'] neq '' "}
-                                    <img src="__IMG__{$vo.pic}" height="50">
-                                    {else /}
-                                    暂无缩略图
-                                    {/if}
-                                </td>
-                                <th class="text-center">{$vo.category.categoryname}</th>
-                                <td align="center">
-                                    <a href="{:url('article/edit',array('id'=>$vo['id']))}" class="btn btn-primary btn-sm shiny">
+                                    <a href="{:url('tags/edit',array('id'=>$vo['id']))}" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
                                     </a>
-                                    <a href="#" onClick="warning('确实要删除吗', '{:url('article/del',array('id'=>$vo['id']))}')" class="btn btn-danger btn-sm shiny">
+                                    <a href="#" onClick="warning('确实要删除吗', '{:url('tags/del',array('id'=>$vo['id']))}')" class="btn btn-danger btn-sm shiny">
                                         <i class="fa fa-trash-o"></i> 删除
                                     </a>
                                 </td>
@@ -105,9 +85,9 @@
                         </tbody>
                     </table>
                 </div>
-                <div style="text-align: center; margin-top:10px;">
-                    {$list->render()}
-                </div>
+                <div style="text-align:right; margin-top:10px;">
+                {$list->render()}
+                	                </div>
             </div>
         </div>
     </div>

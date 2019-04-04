@@ -1,10 +1,9 @@
 <?php
 namespace app\admin\controller;
-/*引入控制器文件*/
-use think\Controller;
+use app\admin\controller\Base;
 /*use think\Db;*/
 use app\admin\model\Links as LinksModel;
-class Links extends Controller
+class Links extends Base
 {
     public function lst()
     {

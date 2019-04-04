@@ -1,10 +1,9 @@
 <?php
 namespace app\admin\controller;
-/*引入控制器文件*/
-use think\Controller;
 /*use think\Db;*/
 use app\admin\model\Admin as AdminModel;
-class Admin extends Controller
+use app\admin\controller\Base;
+class Admin extends Base
 {
     public function lst()
     {
@@ -80,5 +79,9 @@ class Admin extends Controller
         }else{
             $this->error('初始化管理员不能删除！');
         }
+    }
+    public function logout(){
+        session(null);
+        $this->success('退出成功！','Login/index');
     }
 }

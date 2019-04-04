@@ -1,8 +1,8 @@
 <?php
 namespace app\Admin\controller;
 use app\Admin\model\Article as ArticleModel;
-use think\Controller;
-class Article extends Controller
+use app\Admin\controller\Base;
+class Article extends Base
 {
     public function lst()
     {

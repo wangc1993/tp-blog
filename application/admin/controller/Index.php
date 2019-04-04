@@ -1,8 +1,7 @@
 <?php
 namespace app\admin\controller;
-/*引入控制器文件*/
-use think\Controller;
-class Index extends Controller
+use app\admin\controller\Base;
+class Index extends Base
 {
     public function index()
     {
